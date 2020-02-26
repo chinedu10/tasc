@@ -28,5 +28,4 @@ export class InvoiceComponent implements OnInit {
       setTimeout(() => resolve({amount}), 1000)
     );
   }
-
 }
