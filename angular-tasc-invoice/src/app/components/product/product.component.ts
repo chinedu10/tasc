@@ -10,6 +10,7 @@ import { ProductService } from '../../service/product.service';
 })
 export class ProductComponent implements OnInit {
   photo: string;
+  name: string;
   products: Array<Product>;
   @Input() cartProducts: Array<Product> = [];
   @Output() itemEmitter = new EventEmitter<Array<Product>>();
@@ -25,7 +26,7 @@ export class ProductComponent implements OnInit {
 		for (var i = 0; i < cart.length; i++) {
       let item = JSON.parse(cart[i]);
 
-			if (item.product) {
+			if (item && item.product) {
         for (let a=0; a<item.quantity; a++) { 
           this.cartProducts.push(item);
         }
@@ -33,8 +34,9 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  onSelect(photo: string) {
+  onSelect(photo: string, name: string) {
     this.photo = photo;
+    this.name = name;
   }
 
   addToCart(product: any) {

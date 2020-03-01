@@ -1,27 +1,40 @@
-<h3>Product List</h3>
-<div class="row">
-    <div class="col-sm-4">
-        <table border="1">
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>No of items in cart {{cartProducts.length}}</th>
-            </tr>
-            <tr *ngFor="let product of products">
-                <td (click)="onSelect('assets/images/' + product.photo)">
-                    <a href="#">
-                        <img src="assets/images/{{product.photo}}" style = "width:auto; height:60px">
-                        {{product.name}}
-                    </a>
-                </td>
-                <td>{{product.price  | currency:'USD'}}</td>
-                <td>
-                    <button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button>
-                </td>
-            </tr>
-        </table>
+<h3>Products</h3>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-list>
+                <div class="row">
+                    <div class="col-sm-6"><h3 matSubheader>Product Name</h3></div>
+                    <div class="col-sm-3"><h3 matSubheader>Price</h3></div> 
+                    <div class="col-sm-3"><h3 matSubheader>No of items in cart {{cartProducts.length}}</h3></div>    
+                </div>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngFor="let product of products" style="height: auto;">
+                   <!-- <mat-icon matListIcon>folder</mat-icon> -->
+                   <div class="col-sm-6" (click)="onSelect('assets/images/' + product.photo, product.name)">
+                       <a href="#">
+                           <img src="assets/images/{{product.photo}}" style = "width:auto; height:60px">       
+                           <h4 matLine>{{product.name}}</h4>
+                       </a>
+                   </div>
+                   <div class="col-sm-3">
+                        <p matLine class="demo-2"> {{product.price  | currency:'USD'}} </p>
+                   </div>
+                   <div class="col-sm-3">
+                       <button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button>
+                   </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+             </mat-list>
+             <mat-divider></mat-divider>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12"> <h4 matLine>{{name}}</h4> </div>
+            <div class="row">
+                <div class="col-sm-12"> <img mat-card-image src="{{photo}}" width="75%"> </div>
+            </div>
+        </div>
+    
     </div>
-    <div class="col-sm-8 main-area">
-        <img mat-card-image src="{{photo}}" width="100">
-    </div>    
 </div>

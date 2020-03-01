@@ -29,6 +29,7 @@ import {
   MatSlideToggleModule,
   MatTreeModule
  } from '@angular/material';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrintLayoutComponent } from './components/print-layout/print-layout.component';
@@ -63,6 +64,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSnackBarModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatCarouselModule,
     MatTabsModule,
     MatIconModule,
     MatListModule,
