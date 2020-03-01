@@ -1,0 +1,12 @@
+.main-area{ 
+    width:35%; 
+    overflow:hidden;
+    height:300px; 
+    border: 5px dashed white;
+    } 
+    img{ 
+    width:auto; 
+    height:100%; 
+    object-fit:cover; 
+    } 
+

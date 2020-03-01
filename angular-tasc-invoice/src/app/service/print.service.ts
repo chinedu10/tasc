@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { Item } from '../model/item';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PrintService {
   isPrinting = false;
 
   constructor(private router: Router) { }
 
-  printDocument(documentName: string, documentData: string[]) {
+  printInvoice(documentName: string, documentData: string[]) {
     this.isPrinting = true;
     this.router.navigate(['/',
       { outlets: {
@@ -17,11 +19,27 @@ export class PrintService {
       }}]);
   }
 
-  onDataReady() {
+  onDataReady(items: Array<Item>) {
     setTimeout(() => {
       window.print();
       this.isPrinting = false;
-      this.router.navigate([{ outlets: { print: null }}]);
-    });
+    });  
+  }
+
+  addItem(data: any) {
+    if (data) {   
+      let node = document.createElement("li");
+      let nodecount = document.createTextNode(data.name + ' ');
+      let nodeseparator =  document.createTextNode(' : ');
+      let nodename = document.createTextNode(data.name);
+      let nodevalue = document.createTextNode('$' + data.price);
+
+      node.appendChild(nodecount);
+      node.appendChild(nodename);
+      node.appendChild(nodeseparator);
+      node.appendChild(nodevalue);
+
+      document.getElementById("output").appendChild(node);  
+    }
   }
 }

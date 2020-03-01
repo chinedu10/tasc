@@ -1,0 +1,27 @@
+<h3>Product List</h3>
+<div class="row">
+    <div class="col-sm-4">
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>No of items in cart {{cartProducts.length}}</th>
+            </tr>
+            <tr *ngFor="let product of products">
+                <td (click)="onSelect('assets/images/' + product.photo)">
+                    <a href="#">
+                        <img src="assets/images/{{product.photo}}" style = "width:auto; height:60px">
+                        {{product.name}}
+                    </a>
+                </td>
+                <td>{{product.price  | currency:'USD'}}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-8 main-area">
+        <img mat-card-image src="{{photo}}" width="100">
+    </div>    
+</div>
