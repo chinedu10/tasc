@@ -14,7 +14,7 @@ export class ProductService {
         { id: 'p05', name: 'Imported Vespa', price: 15001.25, tax: 0, photo: 'scooter.jpg' },
         { id: 'p06', name: 'Imported crate of Almond Snickers', price: 75.99, tax: 0, photo: 'snicker.png' },
         { id: 'p07', name: 'Discman', price: 55.00, tax: 0, photo: 'discman.jpg' },
-        { id: 'p08', name: 'Imported Bottle of Wine', price: 10.00, tax: 0, photo: 'wine.png' },
+        { id: 'p08', name: 'Imported Bottle of Wine', price: 10.00, tax: 0, photo: 'wine.jpg' },
         { id: 'p09', name: '300lb bag of Fair-Trade Coffee', price: 997.99, tax: 0, photo: 'colombian_coffee.jpg' }
     ];
 

@@ -23,14 +23,17 @@ export class ProductComponent implements OnInit {
     this.productService.findAll().subscribe( data => {this.products = data});
     localStorage.setItem('products', null);
     let cart = JSON.parse(localStorage.getItem('cart'));
-		for (var i = 0; i < cart.length; i++) {
-      let item = JSON.parse(cart[i]);
-
-			if (item && item.product) {
-        for (let a=0; a<item.quantity; a++) { 
-          this.cartProducts.push(item);
+    if (cart && cart.product) {
+      for (var i = 0; i < cart.length; i++) {
+        let item = JSON.parse(cart[i]);
+  
+        if (item && item.product) {
+          for (let a=0; a<item.quantity; a++) { 
+            this.cartProducts.push(item);
+          }
         }
       }
+  
     }
   }
 
